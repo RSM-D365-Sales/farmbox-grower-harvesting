@@ -14,7 +14,7 @@ const STATUSES = [
   { value: 'complete', label: 'Complete', color: 'bg-purple-100 text-purple-700' },
 ]
 
-const SOIL_TYPES = ['Loam', 'Sandy Loam', 'Clay Loam', 'Silt Loam', 'Sandy', 'Clay', 'Peat']
+const GROW_METHODS = ['NFT Hydroponic', 'DWC Hydroponic', 'Vertical Racks / Coco Coir', 'Rockwool Cubes', 'Drip Hydroponic', 'Ebb & Flow', 'Aeroponics', 'N/A — Storage']
 
 export default function FieldsManagement() {
   const { data: fields, isLoading, error, refetch } = useFields()
@@ -88,7 +88,7 @@ export default function FieldsManagement() {
     <div>
       <PageHeader
         title="Fields & Locations"
-        description="Manage growing locations, field areas, and soil types"
+        description="Manage grow zones, canopy area, and hydroponic systems"
         actions={
           <button
             onClick={() => { resetForm(); setShowForm(true) }}
@@ -133,26 +133,26 @@ export default function FieldsManagement() {
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">Area (acres)</label>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Canopy Area (sq ft)</label>
               <input
                 type="number"
-                step="0.01"
+                step="1"
                 min="0"
                 value={form.area_acres}
                 onChange={(e) => setForm({ ...form, area_acres: e.target.value })}
-                placeholder="12.5"
+                placeholder="5000"
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">Soil Type</label>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Grow Method</label>
               <select
                 value={form.soil_type}
                 onChange={(e) => setForm({ ...form, soil_type: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
               >
-                <option value="">Select soil type...</option>
-                {SOIL_TYPES.map(s => <option key={s} value={s}>{s}</option>)}
+                <option value="">Select grow method...</option>
+                {GROW_METHODS.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
             <div>
@@ -223,11 +223,11 @@ export default function FieldsManagement() {
 
                 <div className="grid grid-cols-2 gap-3 text-sm mb-4">
                   <div>
-                    <p className="text-xs text-gray-400">Area</p>
-                    <p className="font-medium text-gray-700">{field.area_acres ? `${field.area_acres} acres` : '—'}</p>
+                    <p className="text-xs text-gray-400">Canopy Area</p>
+                    <p className="font-medium text-gray-700">{field.area_acres ? `${Number(field.area_acres).toLocaleString()} sq ft` : '—'}</p>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400">Soil Type</p>
+                    <p className="text-xs text-gray-400">Grow Method</p>
                     <p className="font-medium text-gray-700">{field.soil_type || '—'}</p>
                   </div>
                 </div>

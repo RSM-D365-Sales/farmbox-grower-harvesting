@@ -124,15 +124,16 @@ function CropsContent() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500">
                 <option value="lbs">lbs</option>
                 <option value="kg">kg</option>
+                <option value="heads">heads</option>
                 <option value="bunches">bunches</option>
                 <option value="each">each</option>
                 <option value="cases">cases</option>
               </select>
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">Target Yield / Acre</label>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Yield / sq ft / cycle</label>
               <input type="number" step="0.01" value={form.target_yield_per_acre} onChange={(e) => setForm({ ...form, target_yield_per_acre: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500" placeholder="800" />
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500" placeholder="0.30" />
             </div>
             <div className="sm:col-span-2 lg:col-span-3 flex justify-end gap-2">
               <button type="button" onClick={resetForm} className="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg">Cancel</button>
@@ -159,7 +160,7 @@ function CropsContent() {
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Grow Days</th>
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Lead Time</th>
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Unit</th>
-                  <th className="text-left px-5 py-3 font-medium text-gray-500">Target Yield/Acre</th>
+                  <th className="text-left px-5 py-3 font-medium text-gray-500">Yield / sq ft</th>
                   <th className="text-right px-5 py-3 font-medium text-gray-500">Actions</th>
                 </tr>
               </thead>

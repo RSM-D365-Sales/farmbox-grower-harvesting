@@ -70,11 +70,11 @@ export default function GrowCycleDetail() {
               <dd className="font-medium">{cycle.field?.location || '—'}</dd>
             </div>
             <div>
-              <dt className="text-gray-400">Area</dt>
-              <dd className="font-medium">{cycle.field?.area_acres} acres</dd>
+              <dt className="text-gray-400">Canopy Area</dt>
+              <dd className="font-medium">{cycle.field?.area_acres ? Number(cycle.field.area_acres).toLocaleString() : '—'} sq ft</dd>
             </div>
             <div>
-              <dt className="text-gray-400">Soil Type</dt>
+              <dt className="text-gray-400">Grow Method</dt>
               <dd className="font-medium">{cycle.field?.soil_type || '—'}</dd>
             </div>
           </dl>
@@ -108,7 +108,7 @@ export default function GrowCycleDetail() {
               </dd>
             </div>
             <div>
-              <dt className="text-gray-400">Target Yield/Acre</dt>
+              <dt className="text-gray-400">Yield / sq ft</dt>
               <dd className="font-medium">{cycle.crop?.target_yield_per_acre} {cycle.crop?.unit_of_measure}</dd>
             </div>
           </dl>
