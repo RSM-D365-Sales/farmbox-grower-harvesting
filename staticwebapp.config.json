@@ -1,0 +1,6 @@
+{
+  "navigationFallback": {
+    "rewrite": "/grower-harvesting/index.html",
+    "exclude": ["/grower-harvesting/assets/*"]
+  }
+}
