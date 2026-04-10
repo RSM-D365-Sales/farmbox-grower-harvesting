@@ -156,7 +156,6 @@ export default function CropsManagement() {
               >
                 <option value="lbs">lbs</option>
                 <option value="kg">kg</option>
-                <option value="heads">heads</option>
                 <option value="each">each</option>
                 <option value="bunches">bunches</option>
                 <option value="flats">flats</option>
@@ -164,14 +163,14 @@ export default function CropsManagement() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">Yield / sq ft / cycle</label>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Target Yield / Acre</label>
               <input
                 type="number"
                 step="0.01"
                 min="0"
                 value={form.target_yield_per_acre}
                 onChange={(e) => setForm({ ...form, target_yield_per_acre: e.target.value })}
-                placeholder="0.30"
+                placeholder="800"
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
               />
             </div>
@@ -222,7 +221,7 @@ export default function CropsManagement() {
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Grow Days</th>
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Lead Time</th>
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Unit</th>
-                  <th className="text-left px-5 py-3 font-medium text-gray-500">Yield / sq ft</th>
+                  <th className="text-left px-5 py-3 font-medium text-gray-500">Target Yield/Acre</th>
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Short Lead?</th>
                   <th className="text-right px-5 py-3 font-medium text-gray-500">Actions</th>
                 </tr>

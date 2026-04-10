@@ -91,7 +91,7 @@ function FieldsContent() {
     <div>
       <PageHeader
         title="Manage Fields"
-        description="Add, edit, or remove hydroponic grow zones"
+        description="Add, edit, or remove growing field locations"
         actions={
           !showForm && (
             <button onClick={() => { resetForm(); setShowForm(true) }}
@@ -120,14 +120,14 @@ function FieldsContent() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500" placeholder="Block A, North Campus" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">Canopy Area (sq ft)</label>
-              <input type="number" step="1" value={form.area_acres} onChange={(e) => setForm({ ...form, area_acres: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500" placeholder="5000" />
+              <label className="block text-xs font-medium text-gray-500 mb-1">Area (acres)</label>
+              <input type="number" step="0.01" value={form.area_acres} onChange={(e) => setForm({ ...form, area_acres: e.target.value })}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500" placeholder="12.5" />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">Grow Method</label>
+              <label className="block text-xs font-medium text-gray-500 mb-1">Soil Type</label>
               <input value={form.soil_type} onChange={(e) => setForm({ ...form, soil_type: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500" placeholder="NFT Hydroponic" />
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary-500" placeholder="Loam" />
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-500 mb-1">Status</label>
@@ -157,8 +157,8 @@ function FieldsContent() {
                 <tr className="bg-gray-50 border-b border-gray-100">
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Name</th>
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Location</th>
-                  <th className="text-left px-5 py-3 font-medium text-gray-500">Canopy (sq ft)</th>
-                  <th className="text-left px-5 py-3 font-medium text-gray-500">Grow Method</th>
+                  <th className="text-left px-5 py-3 font-medium text-gray-500">Acres</th>
+                  <th className="text-left px-5 py-3 font-medium text-gray-500">Soil</th>
                   <th className="text-left px-5 py-3 font-medium text-gray-500">Status</th>
                   <th className="text-right px-5 py-3 font-medium text-gray-500">Actions</th>
                 </tr>
@@ -168,7 +168,7 @@ function FieldsContent() {
                   <tr key={f.id} className="hover:bg-gray-50/50">
                     <td className="px-5 py-3 font-medium text-gray-800">{f.name}</td>
                     <td className="px-5 py-3 text-gray-600">{f.location || '—'}</td>
-                    <td className="px-5 py-3 text-gray-600">{f.area_acres ? Number(f.area_acres).toLocaleString() : '—'}</td>
+                    <td className="px-5 py-3 text-gray-600">{f.area_acres || '—'}</td>
                     <td className="px-5 py-3 text-gray-600">{f.soil_type || '—'}</td>
                     <td className="px-5 py-3">
                       <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${STATUS_COLORS[f.status] || 'bg-gray-100 text-gray-600'}`}>

@@ -137,7 +137,7 @@ export default function D365Mappings() {
                 <div key={field.id} className="flex items-center gap-4 p-3 border border-gray-100 rounded-lg">
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-gray-800 text-sm">{field.name}</p>
-                    <p className="text-xs text-gray-400">{field.location} • {field.area_acres ? Number(field.area_acres).toLocaleString() : '—'} sq ft • {field.soil_type}</p>
+                    <p className="text-xs text-gray-400">{field.location} • {field.area_acres} acres • {field.soil_type}</p>
                   </div>
                   <ArrowRightLeft className="w-4 h-4 text-gray-300 flex-shrink-0" />
                   <div className="w-64">
