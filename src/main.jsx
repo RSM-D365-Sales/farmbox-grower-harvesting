@@ -18,7 +18,7 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/farmbox-grower-harvesting">
+      <BrowserRouter basename="/grower-harvesting">
         <AuthProvider>
           <App />
         </AuthProvider>
